@@ -44,10 +44,8 @@ CFUUIDBytes FICUUIDBytesWithString(NSString *string) {
     CFUUIDBytes UUIDBytes;
     CFUUIDRef UUIDRef = CFUUIDCreateFromString(kCFAllocatorDefault, (CFStringRef)string);
     
-    if (UUIDRef != NULL) {
-        UUIDBytes = CFUUIDGetUUIDBytes(UUIDRef);
-        CFRelease(UUIDRef);
-    }
+    UUIDBytes = CFUUIDGetUUIDBytes(UUIDRef);
+    CFRelease(UUIDRef);
     
     return UUIDBytes;
 }
